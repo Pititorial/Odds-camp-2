@@ -1,0 +1,21 @@
+@layer utilities {
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    background-color: rgb(59 130 246);
+    color: white;
+    border-radius: 0.5rem;
+  }
+  .btn-primary:hover {
+    background-color: rgb(37 99 235);
+  }
+  
+  .btn-secondary {
+    padding: 0.5rem 1rem;
+    background-color: rgb(107 114 128);
+    color: white;
+    border-radius: 0.5rem;
+  }
+  .btn-secondary:hover {
+    background-color: rgb(75 85 99);
+  }
+} 

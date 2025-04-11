@@ -1,0 +1,26 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+/* Import components */
+@import "components/buttons.css";
+@import "components/cards.css";
+
+/* Custom base styles */
+@layer base {
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .content-area {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+} 
