@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'home#index'
 
+  # Authentication routes
+  get 'signup', to: 'users#new', as: :signup
   resources :users, only: [:new, :create]
   
-  # Authentication routes
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
