@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root 'home#index'
+  root 'feeds#index'
 
   # Authentication routes
   get 'signup', to: 'users#new', as: :signup
@@ -20,4 +19,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  # Feed routes
+  resources :feeds, only: [:index, :create]
+  resources :posts, only: [:create]
 end

@@ -1,0 +1,41 @@
+<div class="feed-container">
+  <div class="create-post-form">
+    <%= form_with(model: @post, local: true) do |f| %>
+      <%= f.text_area :content, class: 'post-input', placeholder: 'เขียนอะไรสักหน่อย...' %>
+      <%= f.submit 'โพสต์', class: 'post-button' %>
+    <% end %>
+  </div>
+
+  <div class="posts-list">
+    <% @posts.each do |post| %>
+      <div class="post-card">
+        <div class="post-header">
+          <% if post.user.avatar.attached? %>
+            <%= image_tag post.user.avatar, class: 'post-avatar' %>
+          <% else %>
+            <div class="post-avatar"></div>
+          <% end %>
+          <span class="post-author"><%= post.user.username %></span>
+          <span class="post-timestamp"><%= time_ago_in_words(post.created_at) %> ที่แล้ว</span>
+        </div>
+        <div class="post-content">
+          <%= post.content %>
+        </div>
+        <div class="post-actions">
+          <div class="action-button">
+            <i class="far fa-heart"></i>
+            <span>ชอบ</span>
+          </div>
+          <div class="action-button">
+            <i class="far fa-comment"></i>
+            <span>คอมเมนต์</span>
+          </div>
+          <div class="action-button">
+            <i class="far fa-share-square"></i>
+            <span>แชร์</span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div> 
